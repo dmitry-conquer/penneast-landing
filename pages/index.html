@@ -26,9 +26,18 @@
 
     <main id="main-content">
       <section class="hero section-dark" aria-labelledby="hero-title">
-        <div class="hero__ambient hero__ambient--one" aria-hidden="true"></div>
-        <div class="hero__ambient hero__ambient--two" aria-hidden="true"></div>
-        <div class="hero__grid" aria-hidden="true"></div>
+        <div class="hero__ambient hero__ambient--one" data-pointer-parallax data-depth="-34" aria-hidden="true"></div>
+        <div class="hero__ambient hero__ambient--two" data-pointer-parallax data-depth="24" aria-hidden="true"></div>
+        <div class="hero__grid" data-pointer-parallax data-depth="-7" aria-hidden="true"></div>
+        <div class="hero__orbit hero__orbit--one" data-pointer-parallax data-depth="42" aria-hidden="true"></div>
+        <div class="hero__orbit hero__orbit--two" data-pointer-parallax data-depth="-22" aria-hidden="true"></div>
+        <div class="hero__spark" data-pointer-parallax data-depth="58" aria-hidden="true"></div>
+        <div class="hero__product" data-pointer-parallax data-depth="16" aria-hidden="true">
+          <span class="hero__product-halo"></span>
+          <img src="/images/New mock up - 26.png" alt="" />
+          <span class="hero__product-chip hero__product-chip--one">Personalized dashboard</span>
+          <span class="hero__product-chip hero__product-chip--two">Card management</span>
+        </div>
 
         <div class="hero__top shell">
           <a class="brand-mark" href="https://penneastfcu.org/" aria-label="Penn East Federal Credit Union home">
@@ -38,14 +47,18 @@
         </div>
 
         <div class="hero__content shell">
-          <div class="hero__copy">
+          <div class="hero__copy" data-pointer-parallax data-depth="5">
             <p class="kicker hero__kicker">Launching August 25, 2026</p>
             <h1 id="hero-title" class="hero__title" data-hero-title>
-              A better way<br />
-              to bank is <em>coming.</em>
+              A better digital<br />
+              banking experience<br />
+              is <em>coming.</em>
             </h1>
             <p class="hero__lead" data-hero-lead>
               Built around member feedback and designed to make banking easier, faster, and more personalized.
+            </p>
+            <p class="hero__detail">
+              Whether you're checking your balance, paying bills, depositing checks, managing your cards, or planning for your financial future, our new Digital Banking experience brings everything together in one secure, modern platform.
             </p>
             <div class="hero__actions" data-hero-actions>
               <a class="button button--gold magnetic" href="#prepare" data-scroll-link>
@@ -56,14 +69,13 @@
             </div>
           </div>
 
-          <div class="hero__date" aria-label="Launch date August 25, 2026" data-hero-date>
-            <span class="hero__date-label">Launch date</span>
-            <span class="hero__date-number">08<span>.</span>25<span>.</span>26</span>
-          </div>
         </div>
 
         <div class="hero__bottom shell">
-          <span>Secure. Modern. Made for members.</span>
+          <div class="hero__date" aria-label="Launch date August 25, 2026" data-hero-date>
+            <span class="hero__date-label">Launch date</span>
+            <span class="hero__date-number">08<span>.</span>25<span>.</span>2026</span>
+          </div>
           <a class="scroll-cue" href="#why" data-scroll-link>
             <span>Scroll to explore</span>
             <i aria-hidden="true"></i>
@@ -81,10 +93,10 @@
 
         <div class="shell story__grid">
           <div class="story__image-wrap reveal-media">
-            <img src="/images/digital-banking.jpg" alt="A person using financial tools on a smartphone and laptop" />
+            <img src="/images/tablet-user 26.png" alt="A Penn East member viewing the new Digital Banking dashboard on a tablet" />
             <div class="story__image-tag">
-              <span>One platform</span>
-              <strong>Built for everyday banking</strong>
+              <span>Designed around your feedback</span>
+              <strong>A better Digital Banking experience</strong>
             </div>
           </div>
 
@@ -93,15 +105,11 @@
               At Penn East, we're always looking for ways to improve the way you bank.
             </p>
             <p class="reveal">
-              Over the past year, we've listened to member feedback, reviewed survey responses, and evaluated how members use Online and Mobile Banking every day.
+              Over the past year, we've listened to member feedback, reviewed survey responses, and evaluated how members use Online and Mobile Banking every day. Your feedback helped shape our decision to invest in a modern Digital Banking platform that delivers the features, convenience, and security our members expect.
             </p>
             <p class="reveal">
-              The result is a faster, more intuitive experience with powerful tools designed to help you manage your finances with confidence.
+              The result is a faster, more intuitive experience with powerful tools designed to help you manage your finances with confidence. From a personalized dashboard and improved navigation to enhanced card controls and financial wellness tools, everything has been thoughtfully designed with our members in mind.
             </p>
-            <div class="story__quote reveal">
-              <span aria-hidden="true">“</span>
-              <p>Everything has been thoughtfully designed with our members in mind.</p>
-            </div>
           </div>
         </div>
       </section>
@@ -112,39 +120,33 @@
             <p class="kicker reveal">Before launch day</p>
             <h2 id="prepare-title" class="display-title" data-split-reveal>Are you<br /><span>launch ready?</span></h2>
           </div>
-          <p class="prepare__intro reveal">Complete these three simple steps before August 25 to make your first login as smooth as possible.</p>
+          <p class="prepare__intro reveal">To help make your first login as smooth as possible, complete these three simple steps before August 25.</p>
         </div>
 
         <div class="prepare__track-wrap" data-prepare-track>
           <div class="prepare__track shell">
-            <article class="prepare-card prepare-card--gold">
+            <article class="prepare-card prepare-card--gold tilt-card" data-tilt-card>
               <div class="prepare-card__number">01</div>
-              <div>
-                <p class="prepare-card__label">Your credentials</p>
+              <div class="prepare-card__content">
                 <h3>Know your username and password</h3>
-                <p>Use your existing username and password the first time you sign in. Then you'll create a new password.</p>
+                <p>You'll use your existing username and password the first time you sign in. After successfully logging in, you'll be prompted to create a new password before accessing your new Digital Banking experience.</p>
               </div>
-              <span class="prepare-card__status">Keep them handy</span>
             </article>
 
-            <article class="prepare-card prepare-card--blue">
+            <article class="prepare-card prepare-card--blue tilt-card" data-tilt-card>
               <div class="prepare-card__number">02</div>
-              <div>
-                <p class="prepare-card__label">Secure verification</p>
+              <div class="prepare-card__content">
                 <h3>Verify your contact information</h3>
-                <p>Make sure your email address and mobile phone number are current so we can securely verify your identity.</p>
+                <p>Make sure your email address and mobile phone number are up to date. We'll use this information to securely verify your identity during your first login.</p>
               </div>
-              <span class="prepare-card__status">Check your profile</span>
             </article>
 
-            <article class="prepare-card prepare-card--navy">
+            <article class="prepare-card prepare-card--navy tilt-card" data-tilt-card>
               <div class="prepare-card__number">03</div>
-              <div>
-                <p class="prepare-card__label">Mobile app</p>
+              <div class="prepare-card__content">
                 <h3>Turn on automatic app updates</h3>
-                <p>Enable automatic updates to receive the newest version of the Penn East Mobile App as soon as it's available.</p>
+                <p>If you use the Penn East Mobile App, enable automatic app updates so you'll automatically receive the newest version when it's available.</p>
               </div>
-              <span class="prepare-card__status">Stay up to date</span>
             </article>
           </div>
         </div>
@@ -153,11 +155,10 @@
       <section class="journey section-dark" aria-labelledby="journey-title">
         <div class="shell journey__layout">
           <div class="journey__sticky">
-            <p class="kicker reveal">Your digital banking journey</p>
+            <p class="kicker reveal">Today · August 25 · You're Ready</p>
             <h2 id="journey-title" class="display-title display-title--light" data-split-reveal>
-              From ready<br />to <span>reimagined.</span>
+              Your Digital<br /><span>Banking Journey</span>
             </h2>
-            <p>Three moments. One smooth transition.</p>
           </div>
 
           <div class="journey__timeline" data-journey>
@@ -175,9 +176,8 @@
 
             <article class="journey-step" data-journey-step>
               <span class="journey-step__date">August 25</span>
-              <h3>Your first sign-in.</h3>
+              <h3>Sign in using your current username and password.</h3>
               <ul>
-                <li>Sign in with your current credentials.</li>
                 <li>Verify your identity.</li>
                 <li>Create a new password.</li>
               </ul>
@@ -185,11 +185,12 @@
 
             <article class="journey-step" data-journey-step>
               <span class="journey-step__date">You're ready</span>
-              <h3>Make it yours.</h3>
+              <h3>Explore your personalized dashboard.</h3>
               <ul>
-                <li>Explore and customize your dashboard.</li>
+                <li>Customize your experience.</li>
                 <li>Set up alerts.</li>
                 <li>Enable Face ID or Fingerprint Login.</li>
+                <li>Start enjoying the new features.</li>
               </ul>
             </article>
           </div>
@@ -202,6 +203,13 @@
           <div class="scroll-film__scrim" aria-hidden="true"></div>
           <div class="scroll-film__noise" aria-hidden="true"></div>
 
+          <div class="film-products" aria-hidden="true">
+            <img class="film-product film-product--phone is-active" data-film-product src="/images/New mock up - 26.png" alt="" />
+            <img class="film-product film-product--devices" data-film-product src="/images/multi-device-transparent.png" alt="" />
+            <img class="film-product film-product--experience" data-film-product src="/images/multi-ux device mock up.png" alt="" />
+            <img class="film-product film-product--member" data-film-product src="/images/tablet-user 26.png" alt="" />
+          </div>
+
           <div class="film-top shell">
             <span>Digital Banking / Reimagined</span>
             <span data-frame-status>Preparing the experience…</span>
@@ -209,24 +217,24 @@
 
           <div class="film-chapters shell">
             <div class="film-chapter is-active" data-film-chapter>
-              <p class="kicker">A better experience</p>
-              <h2 id="film-title">Your bank.<br /><em>In your hand.</em></h2>
-              <p>Cleaner navigation, faster performance, and smarter search tools.</p>
+              <p class="kicker">Discover what's new</p>
+              <h2 id="film-title">A Better<br /><em>Experience</em></h2>
+              <p>Enjoy a cleaner, faster, and more intuitive banking experience with improved navigation, faster performance, and smarter search tools.</p>
             </div>
             <div class="film-chapter" data-film-chapter>
-              <p class="kicker">Personalized dashboard</p>
-              <h2>Built around<br /><em>your priorities.</em></h2>
-              <p>Rearrange widgets, organize accounts, and shape the experience around you.</p>
+              <p class="kicker">Discover what's new</p>
+              <h2>Personalized<br /><em>Dashboard</em></h2>
+              <p>Customize your dashboard with the information that's most important to you. Rearrange widgets, organize your accounts, and create a Digital Banking experience that's uniquely yours.</p>
             </div>
             <div class="film-chapter" data-film-chapter>
-              <p class="kicker">Card management</p>
-              <h2>More control.<br /><em>Less friction.</em></h2>
-              <p>Lock cards, report them lost or stolen, set travel notices, and more.</p>
+              <p class="kicker">Discover what's new</p>
+              <h2>Card<br /><em>Management</em></h2>
+              <p>Take greater control of your debit and credit cards by locking or unlocking your cards, reporting them lost or stolen, setting travel notices, and more.</p>
             </div>
             <div class="film-chapter" data-film-chapter>
-              <p class="kicker">Financial wellness</p>
-              <h2>See more.<br /><em>Plan smarter.</em></h2>
-              <p>Track spending, build budgets, set savings goals, and monitor your credit score.</p>
+              <p class="kicker">Discover what's new</p>
+              <h2>Credit Score &amp;<br /><em>Financial Wellness</em></h2>
+              <p>Monitor your credit score, build budgets, track spending, create savings goals, and receive personalized financial insights designed to help you make smarter financial decisions.</p>
             </div>
           </div>
 
@@ -246,44 +254,56 @@
               Everything you need.<br /><span>All in one place.</span>
             </h2>
           </div>
-          <p class="features__intro reveal">A single, secure view of your financial life—designed to feel simple from the very first tap.</p>
+          <p class="features__intro reveal">A faster, more intuitive experience with powerful tools designed to help you manage your finances with confidence.</p>
+        </div>
+
+        <div class="shell product-stage reveal" data-product-stage>
+          <div class="product-stage__copy">
+            <span>Everything you need</span>
+            <strong>All in One Place.</strong>
+          </div>
+          <img
+            src="/images/multi-device-transparent-yellow.png"
+            alt="The new Penn East Digital Banking experience across desktop, tablet, and mobile devices"
+          />
+          <div class="product-stage__badge" aria-hidden="true"><span>Digital Banking</span><strong>2026</strong></div>
         </div>
 
         <div class="shell features__list">
           <article class="feature-row reveal-row">
             <span class="feature-row__number">01</span>
             <h3>Personalized dashboard</h3>
-            <p>Customize the information that's most important to you and rearrange widgets around the way you bank.</p>
+            <p>Customize your dashboard with the information that's most important to you. Rearrange widgets, organize your accounts, and create a Digital Banking experience that's uniquely yours.</p>
             <span class="feature-row__mark" aria-hidden="true">↗</span>
           </article>
           <article class="feature-row reveal-row">
             <span class="feature-row__number">02</span>
             <h3>Your complete financial picture</h3>
-            <p>Connect eligible external accounts and view balances alongside your Penn East accounts.</p>
+            <p>Securely connect eligible accounts from other financial institutions and view balances alongside your Penn East accounts in one convenient dashboard.</p>
             <span class="feature-row__mark" aria-hidden="true">↗</span>
           </article>
           <article class="feature-row reveal-row">
             <span class="feature-row__number">03</span>
             <h3>Digital Snapshot</h3>
-            <p>Quickly view Penn East account balances without signing in after you enable the feature.</p>
+            <p>After enabling Digital Snapshot, quickly view your Penn East account balances without signing in.</p>
             <span class="feature-row__mark" aria-hidden="true">↗</span>
           </article>
           <article class="feature-row reveal-row">
             <span class="feature-row__number">04</span>
             <h3>Card management</h3>
-            <p>Lock or unlock cards, report them lost or stolen, set travel notices, and more.</p>
+            <p>Take greater control of your debit and credit cards by locking or unlocking your cards, reporting them lost or stolen, setting travel notices, and more.</p>
             <span class="feature-row__mark" aria-hidden="true">↗</span>
           </article>
           <article class="feature-row reveal-row">
             <span class="feature-row__number">05</span>
-            <h3>Credit score & wellness</h3>
-            <p>Build budgets, track spending, create savings goals, and receive personalized financial insights.</p>
+            <h3>Credit score &amp; financial wellness</h3>
+            <p>Monitor your credit score, build budgets, track spending, create savings goals, and receive personalized financial insights designed to help you make smarter financial decisions.</p>
             <span class="feature-row__mark" aria-hidden="true">↗</span>
           </article>
           <article class="feature-row reveal-row">
             <span class="feature-row__number">06</span>
             <h3>Better member support</h3>
-            <p>With permission, a Penn East representative can guide you through tasks with secure live screen sharing.</p>
+            <p>Need assistance? With your permission, a Penn East representative can securely view your Digital Banking session and guide you through tasks using live screen sharing.</p>
             <span class="feature-row__mark" aria-hidden="true">↗</span>
           </article>
         </div>
@@ -292,7 +312,7 @@
       <section class="same section-blue" aria-labelledby="same-title">
         <div class="same__marquee" aria-hidden="true">
           <div>
-            <span>New experience</span><i></i><span>Same Penn East</span><i></i><span>New experience</span><i></i><span>Same Penn East</span><i></i>
+            <span>What's Staying the Same</span><i></i><span>Penn East</span><i></i><span>What's Staying the Same</span><i></i><span>Penn East</span><i></i>
           </div>
         </div>
 
@@ -300,63 +320,62 @@
           <div>
             <p class="kicker reveal">What's staying the same</p>
             <h2 id="same-title" class="display-title display-title--light" data-split-reveal>
-              Everything<br />that <span>matters.</span>
+              Many things are staying<br /><span>exactly the same.</span>
             </h2>
+            <p class="same__intro reveal">Even though Digital Banking is getting a fresh new look, many things are staying exactly the same.</p>
           </div>
 
           <ul class="same__list">
             <li class="reveal-row"><span>01</span>Your Penn East accounts</li>
-            <li class="reveal-row"><span>02</span>Your account and routing numbers</li>
-            <li class="reveal-row"><span>03</span>Your Bill Pay payees and recurring payments</li>
-            <li class="reveal-row"><span>04</span>Your eStatement enrollment</li>
-            <li class="reveal-row"><span>05</span>The people you know and trust at Penn East</li>
+            <li class="reveal-row"><span>02</span>Your account numbers</li>
+            <li class="reveal-row"><span>03</span>Your routing number</li>
+            <li class="reveal-row"><span>04</span>Your Bill Pay payees and recurring payments</li>
+            <li class="reveal-row"><span>05</span>Your eStatement enrollment</li>
+            <li class="reveal-row"><span>06</span>The people you know and trust at Penn East</li>
           </ul>
         </div>
 
         <div class="shell launch-glance reveal">
           <div class="launch-glance__title">
             <span>Launch at a glance</span>
-            <strong>08.25.26</strong>
+            <strong>August 25, 2026</strong>
           </div>
           <dl>
             <div><dt>Username</dt><dd>Use your current username</dd></div>
-            <div><dt>Password</dt><dd>Use it once, then create a new one</dd></div>
+            <div><dt>Password</dt><dd>Use your current password once, then create a new one</dd></div>
             <div><dt>Mobile App</dt><dd>Update to the latest version</dd></div>
             <div><dt>eStatements</dt><dd>No action required</dd></div>
-            <div><dt>Bill Pay</dt><dd>Payees and recurring payments transfer</dd></div>
+            <div><dt>Bill Pay</dt><dd>Existing payees and recurring payments will transfer</dd></div>
             <div><dt>Biometric Login</dt><dd>Re-enable after your first login</dd></div>
             <div><dt>Alerts</dt><dd>Set up new alerts after launch</dd></div>
           </dl>
         </div>
       </section>
 
-      <section class="tutorials section-cream" aria-labelledby="tutorials-title">
+      <section id="tutorials" class="tutorials section-cream" aria-labelledby="tutorials-title">
         <div class="shell tutorials__heading">
           <div>
-            <p class="kicker reveal">Learn in a few minutes</p>
-            <h2 id="tutorials-title" class="display-title" data-split-reveal>See it.<br /><span>Then do it.</span></h2>
+            <p class="kicker reveal">Tutorial videos</p>
+            <h2 id="tutorials-title" class="display-title" data-split-reveal>Watch step-by-step<br /><span>tutorials.</span></h2>
           </div>
-          <p class="reveal">Short, step-by-step tutorials will help you feel at home from the moment the new experience launches.</p>
+          <p class="reveal">These videos answer the most common questions visually and help members discover features they might otherwise miss.</p>
         </div>
 
         <div class="shell tutorial-grid">
-          <button class="tutorial-card tutorial-card--one reveal" type="button" data-tutorial="Your First Login">
+          <button class="tutorial-card tutorial-card--one tilt-card tilt-reveal" type="button" data-tilt-card data-tutorial="Your First Login">
             <span class="tutorial-card__meta">01 · 2 min</span>
             <span class="tutorial-card__play" aria-hidden="true">▶</span>
             <strong>Your First Login</strong>
-            <small>Coming before launch</small>
           </button>
-          <button class="tutorial-card tutorial-card--two reveal" type="button" data-tutorial="Top 10 New Features">
-            <span class="tutorial-card__meta">02 · 3–4 min</span>
+          <button class="tutorial-card tutorial-card--two tilt-card tilt-reveal" type="button" data-tilt-card data-tutorial="Top 10 New Features">
+            <span class="tutorial-card__meta">02 · 3 to 4 min</span>
             <span class="tutorial-card__play" aria-hidden="true">▶</span>
             <strong>Top 10 New Features</strong>
-            <small>Coming before launch</small>
           </button>
-          <button class="tutorial-card tutorial-card--three reveal" type="button" data-tutorial="Customize Your Dashboard">
+          <button class="tutorial-card tutorial-card--three tilt-card tilt-reveal" type="button" data-tilt-card data-tutorial="How to Customize Your Dashboard">
             <span class="tutorial-card__meta">03 · 2 min</span>
             <span class="tutorial-card__play" aria-hidden="true">▶</span>
-            <strong>Customize Your Dashboard</strong>
-            <small>Coming before launch</small>
+            <strong>How to Customize Your Dashboard</strong>
           </button>
         </div>
       </section>
@@ -364,39 +383,77 @@
       <section id="faq" class="faq section-light" aria-labelledby="faq-title">
         <div class="shell faq__layout">
           <div class="faq__heading">
-            <p class="kicker reveal">Quick answers before launch</p>
-            <h2 id="faq-title" class="display-title" data-split-reveal>Good questions.<br /><span>Clear answers.</span></h2>
-            <p class="reveal">Everything you need to know before your first sign-in.</p>
+            <p class="kicker reveal">Frequently asked questions</p>
+            <h2 id="faq-title" class="display-title" data-split-reveal>Quick Answers<br /><span>Before Launch</span></h2>
           </div>
 
           <div class="faq__items">
+            <p class="faq-category">Getting Started</p>
             <details class="faq-item reveal-row" open>
               <summary>Do I need to re-enroll?<span aria-hidden="true"></span></summary>
-              <p>No. Use your existing username and password for your first sign-in, then follow the prompts to create a new password.</p>
+              <p>You'll use your existing username and password the first time you sign in.</p>
             </details>
             <details class="faq-item reveal-row">
               <summary>Do I need a new app?<span aria-hidden="true"></span></summary>
-              <p>Update the Penn East Mobile App to the latest version. Turning on automatic updates is the easiest way to be ready.</p>
+              <p>If you use the Penn East Mobile App, enable automatic app updates so you'll automatically receive the newest version when it's available.</p>
             </details>
             <details class="faq-item reveal-row">
-              <summary>Will my account numbers or Bill Pay change?<span aria-hidden="true"></span></summary>
-              <p>Your account and routing numbers stay the same. Existing Bill Pay payees and recurring payments will transfer.</p>
+              <summary>What happens the first time I log in?<span aria-hidden="true"></span></summary>
+              <p>After successfully logging in with your current username and password, you'll be prompted to create a new password before accessing your new Digital Banking experience.</p>
+            </details>
+            <details class="faq-item reveal-row">
+              <summary>Why do I need to verify my email?<span aria-hidden="true"></span></summary>
+              <p>We'll use your up-to-date email address and mobile phone number to securely verify your identity during your first login.</p>
+            </details>
+
+            <p class="faq-category">Your Accounts</p>
+            <details class="faq-item reveal-row">
+              <summary>Will my account numbers change?<span aria-hidden="true"></span></summary>
+              <p>Your account numbers and routing number are staying exactly the same.</p>
             </details>
             <details class="faq-item reveal-row">
               <summary>Will my eStatements transfer?<span aria-hidden="true"></span></summary>
-              <p>Yes. Your eStatement enrollment stays in place, so no action is required.</p>
+              <p>Your eStatement enrollment is staying the same. No action is required.</p>
             </details>
+            <details class="faq-item reveal-row">
+              <summary>Will Bill Pay transfer?<span aria-hidden="true"></span></summary>
+              <p>Your Bill Pay payees and recurring payments are staying the same. Existing payees and recurring payments will transfer.</p>
+            </details>
+            <details class="faq-item reveal-row">
+              <summary>Will my alerts transfer?<span aria-hidden="true"></span></summary>
+              <p>Set up new alerts after launch.</p>
+            </details>
+            <details class="faq-item reveal-row">
+              <summary>Can I connect external accounts?<span aria-hidden="true"></span></summary>
+              <p>Securely connect eligible accounts from other financial institutions and view balances alongside your Penn East accounts in one convenient dashboard.</p>
+            </details>
+
+            <p class="faq-category">Security</p>
             <details class="faq-item reveal-row">
               <summary>Will I need to set up Face ID again?<span aria-hidden="true"></span></summary>
-              <p>Yes. Re-enable Face ID or Fingerprint Login after your first successful sign-in.</p>
+              <p>Re-enable Face ID or Fingerprint Login after your first login.</p>
             </details>
             <details class="faq-item reveal-row">
-              <summary>Can I connect accounts from other institutions?<span aria-hidden="true"></span></summary>
-              <p>Yes. Eligible external accounts can be connected so you can view more of your financial picture in one dashboard.</p>
+              <summary>How does Digital Snapshot work?<span aria-hidden="true"></span></summary>
+              <p>After enabling Digital Snapshot, quickly view your Penn East account balances without signing in.</p>
             </details>
             <details class="faq-item reveal-row">
               <summary>Is Digital Banking secure?<span aria-hidden="true"></span></summary>
-              <p>The new experience uses secure identity verification and modern tools designed to help protect access to your financial information.</p>
+              <p>The modern Digital Banking platform delivers the features, convenience, and security our members expect.</p>
+            </details>
+
+            <p class="faq-category">Mobile Deposit</p>
+            <details class="faq-item reveal-row">
+              <summary>How do I deposit a check?<span aria-hidden="true"></span></summary>
+              <p>Call our Member Care Center or browse our Digital Banking FAQs for Mobile Deposit assistance.</p>
+            </details>
+            <details class="faq-item reveal-row">
+              <summary>What checks can I deposit?<span aria-hidden="true"></span></summary>
+              <p>Call our Member Care Center or browse our Digital Banking FAQs for Mobile Deposit assistance.</p>
+            </details>
+            <details class="faq-item reveal-row">
+              <summary>What should I do after making a deposit?<span aria-hidden="true"></span></summary>
+              <p>Call our Member Care Center or browse our Digital Banking FAQs for Mobile Deposit assistance.</p>
             </details>
           </div>
         </div>
@@ -406,23 +463,26 @@
         <div class="shell help__grid">
           <div class="help__image reveal-media">
             <img src="/images/member-help.jpg" alt="A member using a laptop at a desk" />
-            <span>Here before, during & after launch.</span>
+            <span>Before, during, and after launch.</span>
           </div>
 
           <div class="help__content">
             <p class="kicker reveal">Need help?</p>
-            <h2 id="help-title" class="display-title display-title--light" data-split-reveal>Real people.<br /><span>Ready to help.</span></h2>
-            <p class="help__lead reveal">Our team is here to support you at every step of the transition.</p>
+            <h2 id="help-title" class="display-title display-title--light" data-split-reveal>Our team is here<br /><span>to help.</span></h2>
+            <p class="help__lead reveal">Our team is here to help before, during, and after launch.</p>
 
             <div class="help__links">
               <a class="help-link reveal-row" href="https://penneastfcu.org/locations/">
-                <span><small>In person</small>Visit a branch</span><i aria-hidden="true">↗</i>
+                <span><small>In person</small>Visit one of our branch locations</span><i aria-hidden="true">↗</i>
               </a>
               <a class="help-link reveal-row" href="tel:5703422720">
-                <span><small>Member Care Center</small>570-342-2720</span><i aria-hidden="true">↗</i>
+                <span><small>By phone</small>Call our Member Care Center</span><i aria-hidden="true">↗</i>
               </a>
               <a class="help-link reveal-row" href="#faq" data-scroll-link>
-                <span><small>Self service</small>Browse FAQs</span><i aria-hidden="true">↗</i>
+                <span><small>Frequently asked questions</small>Browse our Digital Banking FAQs</span><i aria-hidden="true">↗</i>
+              </a>
+              <a class="help-link reveal-row" href="#tutorials" data-scroll-link>
+                <span><small>Video</small>Watch step-by-step tutorials</span><i aria-hidden="true">↗</i>
               </a>
             </div>
           </div>
@@ -434,10 +494,11 @@
         <div class="closing__ring closing__ring--two" aria-hidden="true"></div>
         <div class="shell closing__content">
           <p class="kicker reveal">Welcome to a better way to bank</p>
-          <h2 id="closing-title" data-split-reveal>Faster. Smarter.<br />Built around <em>you.</em></h2>
+          <h2 id="closing-title" data-split-reveal>Welcome to a<br /><em>Better Way to Bank</em></h2>
+          <p class="reveal">We're excited to introduce a Digital Banking experience that's faster, smarter, and built around the way you bank. Thank you for your patience during this transition and for trusting Penn East with your financial journey.</p>
           <p class="reveal">We can't wait for you to experience everything that's new beginning August 25, 2026.</p>
           <a class="button button--navy magnetic reveal" href="#prepare" data-scroll-link>
-            <span>Get launch ready</span><span class="button__arrow" aria-hidden="true">↑</span>
+            <span>Learn How to Prepare</span><span class="button__arrow" aria-hidden="true">↑</span>
           </a>
           <span class="closing__note">Penn East Federal Credit Union · Federally insured by NCUA</span>
         </div>
@@ -446,9 +507,9 @@
 
     <dialog class="tutorial-dialog" aria-labelledby="tutorial-dialog-title">
       <button class="tutorial-dialog__close" type="button" aria-label="Close tutorial notice">×</button>
-      <span class="kicker">Tutorial preview</span>
-      <h2 id="tutorial-dialog-title">Tutorial coming soon</h2>
-      <p>This step-by-step video will be available before the new Digital Banking experience launches on August 25, 2026.</p>
+      <span class="kicker">Tutorial video</span>
+      <h2 id="tutorial-dialog-title">Your First Login</h2>
+      <p>Watch step-by-step tutorials.</p>
       <button class="button button--navy tutorial-dialog__button" type="button">Got it</button>
     </dialog>
 
