@@ -92,12 +92,20 @@ const initializeSplitReveals = () => {
       linesClass: "split-line",
       aria: "auto",
       onSplit(self) {
-        return gsap.from(self.lines, {
-          yPercent: 115,
-          rotate: 1.5,
+        if (element.dataset.splitRevealed === "true") {
+          return gsap.set(self.lines, { yPercent: 0, rotate: 0 });
+        }
+
+        gsap.set(self.lines, { yPercent: 115, rotate: 1.5 });
+        return gsap.to(self.lines, {
+          yPercent: 0,
+          rotate: 0,
           duration: 1.05,
           stagger: 0.09,
           ease: "power4.out",
+          onComplete: () => {
+            element.dataset.splitRevealed = "true";
+          },
           scrollTrigger: {
             trigger: element,
             start: "top 84%",
@@ -112,13 +120,21 @@ const initializeSplitReveals = () => {
 const initializeReveals = () => {
   if (reducedMotion) return;
 
-  ScrollTrigger.batch(".reveal", {
+  const reveals = gsap.utils.toArray<HTMLElement>(".reveal");
+  const rows = gsap.utils.toArray<HTMLElement>(".reveal-row");
+  const tiltReveals = gsap.utils.toArray<HTMLElement>(".tilt-reveal");
+
+  gsap.set(reveals, { y: 42, autoAlpha: 0 });
+  gsap.set(rows, { y: 28, autoAlpha: 0 });
+  gsap.set(tiltReveals, { autoAlpha: 0 });
+
+  ScrollTrigger.batch(reveals, {
     start: "top 88%",
     once: true,
     onEnter: (items) => {
-      gsap.from(items, {
-        y: 42,
-        autoAlpha: 0,
+      gsap.to(items, {
+        y: 0,
+        autoAlpha: 1,
         duration: 0.9,
         stagger: 0.1,
         ease: "power3.out",
@@ -127,13 +143,13 @@ const initializeReveals = () => {
     },
   });
 
-  ScrollTrigger.batch(".reveal-row", {
+  ScrollTrigger.batch(rows, {
     start: "top 91%",
     once: true,
     onEnter: (items) => {
-      gsap.from(items, {
-        y: 28,
-        autoAlpha: 0,
+      gsap.to(items, {
+        y: 0,
+        autoAlpha: 1,
         duration: 0.75,
         stagger: 0.07,
         ease: "power3.out",
@@ -142,12 +158,12 @@ const initializeReveals = () => {
     },
   });
 
-  ScrollTrigger.batch(".tilt-reveal", {
+  ScrollTrigger.batch(tiltReveals, {
     start: "top 88%",
     once: true,
     onEnter: (items) => {
-      gsap.from(items, {
-        autoAlpha: 0,
+      gsap.to(items, {
+        autoAlpha: 1,
         duration: 0.85,
         stagger: 0.1,
         ease: "power3.out",
@@ -157,8 +173,9 @@ const initializeReveals = () => {
 
   document.querySelectorAll<HTMLElement>(".reveal-media").forEach((wrapper) => {
     const image = wrapper.querySelector("img");
-    gsap.from(wrapper, {
-      clipPath: "inset(0 0 100% 0)",
+    gsap.set(wrapper, { clipPath: "inset(0 0 100% 0)" });
+    gsap.to(wrapper, {
+      clipPath: "inset(0 0 0% 0)",
       duration: 1.25,
       ease: "power4.inOut",
       scrollTrigger: { trigger: wrapper, start: "top 84%", once: true },
@@ -468,15 +485,55 @@ const initializeProductStage = () => {
 };
 
 const initializeMarquee = () => {
-  const marquee = document.querySelector<HTMLElement>(".same__marquee > div");
-  if (!marquee || reducedMotion) return;
+  const viewport = document.querySelector<HTMLElement>(".same__marquee");
+  const track = viewport?.querySelector<HTMLElement>("[data-marquee-track]");
+  const source = track?.querySelector<HTMLElement>("[data-marquee-set]");
+  if (!viewport || !track || !source) return;
 
-  gsap.to(marquee, {
-    xPercent: -50,
-    duration: 24,
-    ease: "none",
-    repeat: -1,
-  });
+  const pattern = Array.from(source.children).map((child) => child.cloneNode(true) as HTMLElement);
+  let duplicate: HTMLElement | null = null;
+  let tween: gsap.core.Tween | null = null;
+  let resizeTimer = 0;
+
+  const buildMarquee = () => {
+    tween?.kill();
+    duplicate?.remove();
+
+    const minimumSetWidth = viewport.clientWidth * 1.25;
+    let additions = 0;
+    while (source.scrollWidth < minimumSetWidth && additions < 12) {
+      pattern.forEach((item) => source.appendChild(item.cloneNode(true)));
+      additions += 1;
+    }
+
+    duplicate = source.cloneNode(true) as HTMLElement;
+    duplicate.removeAttribute("data-marquee-set");
+    duplicate.setAttribute("aria-hidden", "true");
+    track.appendChild(duplicate);
+
+    gsap.set(track, { x: 0 });
+    if (reducedMotion) return;
+
+    const distance = source.scrollWidth;
+    tween = gsap.to(track, {
+      x: -distance,
+      duration: Math.max(20, distance / 70),
+      ease: "none",
+      repeat: -1,
+    });
+  };
+
+  buildMarquee();
+  void document.fonts.ready.then(buildMarquee);
+
+  window.addEventListener(
+    "resize",
+    () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(buildMarquee, 140);
+    },
+    { passive: true },
+  );
 };
 
 const initializePageProgress = () => {
@@ -745,9 +802,13 @@ const initialize = async () => {
   initializeFaq();
   initializeTutorialDialog();
   initializeClosingMotion();
-  await initializeScrollFilm();
+  const scrollFilmReady = initializeScrollFilm();
   document.body.classList.remove("is-loading");
+  ScrollTrigger.refresh();
+  await scrollFilmReady;
   ScrollTrigger.refresh();
 };
 
-void document.fonts.ready.then(initialize);
+void initialize().then(() => {
+  void document.fonts.ready.then(() => ScrollTrigger.refresh());
+});

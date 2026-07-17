@@ -18,7 +18,7 @@
     <title>A Better Digital Banking Experience | Penn East FCU</title>
   </head>
 
-  <body>
+  <body class="is-loading">
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <div class="cursor-dot" aria-hidden="true"></div>
@@ -311,8 +311,10 @@
 
       <section class="same section-blue" aria-labelledby="same-title">
         <div class="same__marquee" aria-hidden="true">
-          <div>
-            <span>What's Staying the Same</span><i></i><span>Penn East</span><i></i><span>What's Staying the Same</span><i></i><span>Penn East</span><i></i>
+          <div data-marquee-track>
+            <div class="same__marquee-set" data-marquee-set>
+              <span>What's Staying the Same</span><i></i><span>Penn East</span><i></i><span>What's Staying the Same</span><i></i><span>Penn East</span><i></i>
+            </div>
           </div>
         </div>
 
@@ -514,6 +516,29 @@
     </dialog>
 
     <noscript>
+      <style>
+        body.is-loading .reveal,
+        body.is-loading .reveal-row,
+        body.is-loading .reveal-media,
+        body.is-loading .tilt-reveal,
+        body.is-loading [data-split-reveal],
+        body.is-loading [data-hero-title],
+        body.is-loading [data-hero-lead],
+        body.is-loading [data-hero-actions],
+        body.is-loading [data-hero-date],
+        body.is-loading .hero__top,
+        body.is-loading .hero__kicker,
+        body.is-loading .hero__bottom {
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: none !important;
+          clip-path: none !important;
+        }
+
+        body.is-loading {
+          cursor: auto;
+        }
+      </style>
       <div class="noscript">Please enable JavaScript to view the scroll-driven parts of this experience.</div>
     </noscript>
 

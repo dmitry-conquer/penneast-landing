@@ -46,6 +46,22 @@ body.is-loading {
   cursor: progress;
 }
 
+body.is-loading .reveal,
+body.is-loading .reveal-row,
+body.is-loading .reveal-media,
+body.is-loading .tilt-reveal,
+body.is-loading [data-split-reveal],
+body.is-loading [data-hero-title],
+body.is-loading [data-hero-lead],
+body.is-loading [data-hero-actions],
+body.is-loading [data-hero-date],
+body.is-loading .hero__top,
+body.is-loading .hero__kicker,
+body.is-loading .hero__bottom {
+  opacity: 0;
+  visibility: hidden;
+}
+
 body.dialog-open {
   overflow: hidden;
 }
@@ -1371,11 +1387,11 @@ button {
   min-height: 160px;
   border-bottom: 1px solid var(--line);
   padding-block: 30px;
-  transition: padding 260ms ease, background 260ms ease;
+  padding-inline: clamp(14px, 2vw, 24px);
+  transition: background-color 260ms ease;
 }
 
 .feature-row:hover {
-  padding-inline: 24px;
   background: var(--ice);
 }
 
@@ -1437,8 +1453,16 @@ button {
   display: flex;
   width: max-content;
   align-items: center;
-  gap: 28px;
   white-space: nowrap;
+  will-change: transform;
+}
+
+.same__marquee-set {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
 }
 
 .same__marquee span {
