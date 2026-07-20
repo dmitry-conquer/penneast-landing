@@ -418,10 +418,10 @@ button {
 .hero__product {
   position: absolute;
   z-index: -1;
-  top: 12%;
+  top: 8%;
   right: 6.5%;
-  bottom: 7%;
-  width: min(33vw, 500px);
+  bottom: 4%;
+  width: min(34vw, 520px);
   pointer-events: none;
   will-change: transform;
 }
@@ -476,28 +476,30 @@ button {
 }
 
 .hero__product-chip--one {
-  top: 26%;
-  left: -17%;
+  top: 22%;
+  left: -20%;
 }
 
 .hero__product-chip--credit {
-  top: 58%;
-  left: -24%;
+  top: 56%;
+  left: -8%;
 }
 
 .hero__product-chip--snapshot {
-  top: 43%;
-  right: -6%;
+  top: 38%;
+  right: 1%;
 }
 
 .hero__product-chip--accounts {
-  right: -14%;
-  bottom: 34%;
+  top: 61%;
+  right: -8%;
+  bottom: auto;
 }
 
 .hero__product-chip--two {
-  right: -11%;
-  bottom: 22%;
+  top: 71%;
+  right: -5%;
+  bottom: auto;
 }
 
 .hero__top,
@@ -1189,8 +1191,8 @@ button {
 }
 
 .film-product--member {
-  right: 6%;
-  width: min(35vw, 555px);
+  right: 3%;
+  width: min(46vw, 740px);
   box-shadow: 0 34px 80px rgba(0, 17, 38, 0.3);
   filter: none;
 }
