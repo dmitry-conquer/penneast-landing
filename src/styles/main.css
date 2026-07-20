@@ -480,6 +480,21 @@ button {
   left: -17%;
 }
 
+.hero__product-chip--credit {
+  top: 58%;
+  left: -24%;
+}
+
+.hero__product-chip--snapshot {
+  top: 43%;
+  right: -6%;
+}
+
+.hero__product-chip--accounts {
+  right: -14%;
+  bottom: 34%;
+}
+
 .hero__product-chip--two {
   right: -11%;
   bottom: 22%;
@@ -1149,10 +1164,14 @@ button {
 }
 
 .film-product--phone {
-  right: 9%;
-  width: min(31vw, 490px);
-  max-height: 84vh;
+  top: 0;
+  right: 4%;
+  bottom: 0;
+  width: min(32vw, 480px);
+  max-height: 88vh;
+  margin-block: auto;
   object-fit: contain;
+  translate: none;
 }
 
 .film-product--devices {

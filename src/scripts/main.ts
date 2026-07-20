@@ -421,10 +421,11 @@ const initializeScrollFilm = async () => {
     }
 
     if (nextProduct) {
+      const productEntryY = nextProduct.classList.contains("film-product--phone") ? 0 : 24;
       nextProduct.classList.add("is-active");
       gsap.fromTo(
         nextProduct,
-        { x: 58, y: 24, scale: 0.94, autoAlpha: 0 },
+        { x: 58, y: productEntryY, scale: 0.94, autoAlpha: 0 },
         { x: 0, y: 0, scale: 1, autoAlpha: 1, duration: 0.82, ease: "power3.out" },
       );
     }
