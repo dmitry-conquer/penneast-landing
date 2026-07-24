@@ -2005,6 +2005,18 @@ button {
   text-transform: uppercase;
 }
 
+.closing__credit {
+  display: block;
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+}
+
+.closing__credit a {
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
 .closing__ring {
   position: absolute;
   z-index: -1;
