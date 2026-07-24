@@ -200,22 +200,24 @@
         </div>
       </section>
 
-      <section class="scroll-film" data-scroll-film data-frame-count="137" aria-labelledby="film-title">
+      <section class="scroll-film" data-scroll-film aria-labelledby="film-title">
         <div class="scroll-film__sticky">
-          <canvas id="scroll-frame-canvas" aria-hidden="true"></canvas>
+          <video class="scroll-film__video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+            <source src="/videos/bg.mp4" type="video/mp4" />
+          </video>
           <div class="scroll-film__scrim" aria-hidden="true"></div>
           <div class="scroll-film__noise" aria-hidden="true"></div>
 
           <div class="film-products" aria-hidden="true">
             <img class="film-product film-product--phone is-active" data-film-product src="/images/mobile-banking-phone-cutout.png" alt="" />
             <img class="film-product film-product--devices" data-film-product src="/images/multi-device-transparent.png" alt="" />
-            <img class="film-product film-product--experience" data-film-product src="/images/live-cc-card-management.png" alt="" />
+            <img class="film-product film-product--experience" data-film-product src="/images/live-cc-card-management.webp" alt="" />
             <img class="film-product film-product--member" data-film-product src="/images/budgeting-in-lifestyle.png" alt="" />
           </div>
 
           <div class="film-top shell">
             <span>Digital Banking / Reimagined</span>
-            <span data-frame-status>Preparing the experience…</span>
+            <span>Scroll to explore</span>
           </div>
 
           <div class="film-chapters shell">

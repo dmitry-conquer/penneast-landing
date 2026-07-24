@@ -61,7 +61,7 @@ const initializeHero = () => {
     .timeline({ defaults: { ease: "power4.out" } })
     .from(".hero__top", { y: -28, autoAlpha: 0, duration: 0.8 })
     .from(".hero__kicker", { y: 20, autoAlpha: 0, duration: 0.65 }, 0.2)
-    .from(split.words, { yPercent: 115, rotate: 2, duration: 1.25, stagger: 0.035 }, 0.28)
+    .from(split.words, { yPercent: 145, rotate: 2, duration: 1.25, stagger: 0.035 }, 0.28)
     .from("[data-hero-lead]", { y: 30, autoAlpha: 0, duration: 0.85 }, 0.72)
     .from("[data-hero-actions]", { y: 24, autoAlpha: 0, duration: 0.75 }, 0.84)
     .from("[data-hero-date]", { x: 30, autoAlpha: 0, duration: 0.7 }, 0.78)
@@ -96,7 +96,7 @@ const initializeSplitReveals = () => {
           return gsap.set(self.lines, { yPercent: 0, rotate: 0 });
         }
 
-        gsap.set(self.lines, { yPercent: 115, rotate: 1.5 });
+        gsap.set(self.lines, { yPercent: 145, rotate: 1.5 });
         return gsap.to(self.lines, {
           yPercent: 0,
           rotate: 0,
@@ -266,120 +266,14 @@ const initializeJourney = () => {
   });
 };
 
-type FrameState = {
-  image: HTMLImageElement | null;
-  loading: boolean;
-};
-
-const initializeScrollFilm = async () => {
+const initializeScrollFilm = () => {
   const section = document.querySelector<HTMLElement>("[data-scroll-film]");
-  const canvas = document.querySelector<HTMLCanvasElement>("#scroll-frame-canvas");
-  const status = document.querySelector<HTMLElement>("[data-frame-status]");
   const progressBar = document.querySelector<HTMLElement>("[data-film-progress]");
   const chapters = gsap.utils.toArray<HTMLElement>("[data-film-chapter]");
   const products = gsap.utils.toArray<HTMLElement>("[data-film-product]");
-  const context = canvas?.getContext("2d", { alpha: false });
-  const count = Number(section?.dataset.frameCount || 0);
+  if (!section || !chapters.length) return;
 
-  if (!section || !canvas || !context || !count) return;
-
-  const frameStep = window.innerWidth < 700 ? 2 : 1;
-  const states: FrameState[] = Array.from({ length: count }, () => ({ image: null, loading: false }));
-  let activeFrame = -1;
   let activeChapter = 0;
-  let loadedCount = 0;
-  let renderRaf = 0;
-  let targetFrame = 0;
-
-  const framePath = (index: number) => `/frames/frame_${String(index + 1).padStart(4, "0")}.jpg`;
-
-  const resizeCanvas = () => {
-    const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
-    const width = Math.max(1, Math.round(canvas.clientWidth * ratio));
-    const height = Math.max(1, Math.round(canvas.clientHeight * ratio));
-    if (canvas.width === width && canvas.height === height) return;
-    canvas.width = width;
-    canvas.height = height;
-    activeFrame = -1;
-    drawFrame(targetFrame);
-  };
-
-  const nearestLoadedFrame = (requested: number) => {
-    if (states[requested]?.image) return requested;
-    for (let offset = 1; offset < count; offset += 1) {
-      const before = requested - offset;
-      const after = requested + offset;
-      if (before >= 0 && states[before]?.image) return before;
-      if (after < count && states[after]?.image) return after;
-    }
-    return -1;
-  };
-
-  const drawFrame = (requested: number) => {
-    const index = nearestLoadedFrame(requested);
-    if (index < 0 || index === activeFrame) return;
-    const image = states[index].image;
-    if (!image) return;
-
-    const canvasRatio = canvas.width / canvas.height;
-    const imageRatio = image.naturalWidth / image.naturalHeight;
-    const width = imageRatio > canvasRatio ? canvas.height * imageRatio : canvas.width;
-    const height = imageRatio > canvasRatio ? canvas.height : canvas.width / imageRatio;
-
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(image, (canvas.width - width) / 2, (canvas.height - height) / 2, width, height);
-    activeFrame = index;
-  };
-
-  const queueRender = () => {
-    if (renderRaf) return;
-    renderRaf = requestAnimationFrame(() => {
-      renderRaf = 0;
-      drawFrame(targetFrame);
-    });
-  };
-
-  const loadFrame = (index: number) =>
-    new Promise<void>((resolve) => {
-      const normalized = Math.min(count - 1, Math.max(0, Math.round(index / frameStep) * frameStep));
-      const state = states[normalized];
-      if (state.image || state.loading) {
-        resolve();
-        return;
-      }
-
-      state.loading = true;
-      const image = new Image();
-      image.decoding = "async";
-      image.onload = () => {
-        state.image = image;
-        state.loading = false;
-        loadedCount += 1;
-        if (status) {
-          const available = Math.ceil(count / frameStep);
-          status.textContent = loadedCount >= available ? "Scroll to explore" : `Loading experience · ${Math.min(99, Math.round((loadedCount / available) * 100))}%`;
-        }
-        queueRender();
-        resolve();
-      };
-      image.onerror = () => {
-        state.loading = false;
-        resolve();
-      };
-      image.src = framePath(normalized);
-    });
-
-  const preloadFrames = async () => {
-    const indices = Array.from({ length: Math.ceil(count / frameStep) }, (_, index) => index * frameStep).filter((index) => index < count);
-    let cursor = 1;
-    const workers = Array.from({ length: finePointer ? 7 : 4 }, async () => {
-      while (cursor < indices.length) {
-        const index = indices[cursor++];
-        await loadFrame(index);
-      }
-    });
-    await Promise.all(workers);
-  };
 
   const showChapter = (index: number) => {
     if (index === activeChapter || !chapters[index]) return;
@@ -431,13 +325,8 @@ const initializeScrollFilm = async () => {
     }
   };
 
-  await loadFrame(0);
-  resizeCanvas();
-  drawFrame(0);
-
   if (reducedMotion) {
     section.style.height = "100svh";
-    if (status) status.textContent = "Digital Banking · August 25, 2026";
     return;
   }
 
@@ -446,19 +335,11 @@ const initializeScrollFilm = async () => {
     start: "top top",
     end: "bottom bottom",
     onUpdate: (self) => {
-      targetFrame = Math.round(self.progress * (count - 1));
-      targetFrame = Math.min(count - 1, Math.max(0, Math.round(targetFrame / frameStep) * frameStep));
-      void loadFrame(targetFrame);
-      queueRender();
-
       const chapter = Math.min(chapters.length - 1, Math.floor(self.progress * chapters.length));
       showChapter(chapter);
       if (progressBar) gsap.set(progressBar, { scaleX: self.progress });
     },
   });
-
-  window.addEventListener("resize", resizeCanvas, { passive: true });
-  void preloadFrames();
 };
 
 const initializeProductStage = () => {
@@ -785,7 +666,7 @@ const initializeClosingMotion = () => {
   });
 };
 
-const initialize = async () => {
+const initialize = () => {
   document.body.classList.add("is-loading");
   initializeSmoothScroll();
   initializeAnchorLinks();
@@ -803,13 +684,10 @@ const initialize = async () => {
   initializeFaq();
   initializeTutorialDialog();
   initializeClosingMotion();
-  const scrollFilmReady = initializeScrollFilm();
+  initializeScrollFilm();
   document.body.classList.remove("is-loading");
-  ScrollTrigger.refresh();
-  await scrollFilmReady;
   ScrollTrigger.refresh();
 };
 
-void initialize().then(() => {
-  void document.fonts.ready.then(() => ScrollTrigger.refresh());
-});
+initialize();
+void document.fonts.ready.then(() => ScrollTrigger.refresh());
