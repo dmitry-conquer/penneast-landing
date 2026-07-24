@@ -276,21 +276,6 @@ button {
   transform-origin: left center;
 }
 
-.cursor-dot {
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-  mix-blend-mode: difference;
-  transform: translate(-50%, -50%);
-}
-
 /* Hero */
 .hero {
   position: relative;
@@ -2192,10 +2177,6 @@ button {
     --section-space: 110px;
   }
 
-  .cursor-dot {
-    display: none;
-  }
-
   .hero__content {
     grid-template-columns: 1fr;
     padding-block: 110px 70px;
@@ -2732,7 +2713,6 @@ button {
     transition-duration: 0.01ms !important;
   }
 
-  .cursor-dot,
   .page-progress {
     display: none;
   }

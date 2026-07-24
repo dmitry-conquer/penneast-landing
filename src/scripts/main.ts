@@ -429,19 +429,80 @@ const initializePageProgress = () => {
   });
 };
 
-const initializePointerDetails = () => {
+const initializeCustomCursor = () => {
   if (!finePointer || reducedMotion) return;
 
-  const cursor = document.querySelector<HTMLElement>(".cursor-dot");
-  if (cursor) {
-    const moveX = gsap.quickTo(cursor, "x", { duration: 0.24, ease: "power3" });
-    const moveY = gsap.quickTo(cursor, "y", { duration: 0.24, ease: "power3" });
-    window.addEventListener("pointermove", (event) => {
-      moveX(event.clientX);
-      moveY(event.clientY);
-      gsap.to(cursor, { autoAlpha: 1, duration: 0.2 });
-    });
-  }
+  const cursor = document.createElement("div");
+  cursor.setAttribute("aria-hidden", "true");
+  Object.assign(cursor.style, {
+    position: "fixed",
+    zIndex: "9999",
+    top: "0",
+    left: "0",
+    width: "12px",
+    height: "12px",
+    border: "1px solid rgba(255, 255, 255, 0.75)",
+    borderRadius: "50%",
+    opacity: "0",
+    pointerEvents: "none",
+    mixBlendMode: "difference",
+    transform: "translate3d(-50%, -50%, 0)",
+    transition: "opacity 180ms ease",
+    willChange: "transform",
+  });
+  document.body.appendChild(cursor);
+
+  let currentX = 0;
+  let currentY = 0;
+  let targetX = 0;
+  let targetY = 0;
+  let frame = 0;
+  let initialized = false;
+
+  const render = () => {
+    currentX += (targetX - currentX) * 0.22;
+    currentY += (targetY - currentY) * 0.22;
+    cursor.style.transform = `translate3d(${currentX - 6}px, ${currentY - 6}px, 0)`;
+
+    if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
+      frame = requestAnimationFrame(render);
+    } else {
+      frame = 0;
+    }
+  };
+
+  const requestRender = () => {
+    if (!frame) frame = requestAnimationFrame(render);
+  };
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+
+      if (!initialized) {
+        currentX = targetX;
+        currentY = targetY;
+        initialized = true;
+      }
+
+      cursor.style.opacity = "1";
+      requestRender();
+    },
+    { passive: true },
+  );
+
+  document.documentElement.addEventListener("mouseleave", () => {
+    cursor.style.opacity = "0";
+  });
+  window.addEventListener("blur", () => {
+    cursor.style.opacity = "0";
+  });
+};
+
+const initializePointerDetails = () => {
+  if (!finePointer || reducedMotion) return;
 
   document.querySelectorAll<HTMLElement>(".magnetic").forEach((button) => {
     button.addEventListener("pointermove", (event) => {
@@ -677,6 +738,7 @@ const initialize = () => {
   initializeJourney();
   initializeMarquee();
   initializePageProgress();
+  initializeCustomCursor();
   initializePointerDetails();
   initializeTiltCards();
   initializeHeroPointerParallax();
