@@ -1134,6 +1134,7 @@ button {
   top: 50%;
   right: 4%;
   max-width: none;
+  height: auto;
   opacity: 0;
   visibility: hidden;
   filter: drop-shadow(0 34px 55px rgba(0, 17, 38, 0.32));

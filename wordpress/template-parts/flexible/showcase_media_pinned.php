@@ -26,9 +26,17 @@ $allowed_product_classes = [
     'member' => 'film-product--member',
 ];
 
-$showcase_slides = array_values(array_filter($slides ?: [], static function ($slide) use ($allowed_product_classes) {
+$normalize_media_variant = static function ($media_variant) {
+    if (is_array($media_variant)) {
+        $media_variant = $media_variant['value'] ?? $media_variant['label'] ?? '';
+    }
+
+    return sanitize_key((string) $media_variant);
+};
+
+$showcase_slides = array_values(array_filter($slides ?: [], static function ($slide) use ($allowed_product_classes, $normalize_media_variant) {
     $media_image = absint($slide['media_image'] ?? 0);
-    $media_variant = $slide['media_variant'] ?? '';
+    $media_variant = $normalize_media_variant($slide['media_variant'] ?? '');
 
     return $media_image && isset($allowed_product_classes[$media_variant]);
 }));
@@ -55,7 +63,7 @@ $showcase_slides = array_values(array_filter($slides ?: [], static function ($sl
                 <?php foreach ($showcase_slides as $slide_index => $slide) : ?>
                     <?php
                     $media_image = absint($slide['media_image'] ?? 0);
-                    $media_variant = $slide['media_variant'] ?? '';
+                    $media_variant = $normalize_media_variant($slide['media_variant'] ?? '');
                     $product_class = $allowed_product_classes[$media_variant] ?? '';
                     ?>
                     <?php if (!empty($media_image) && !empty($product_class)) : ?>
