@@ -62,10 +62,6 @@ body.is-loading .hero__bottom {
   visibility: hidden;
 }
 
-body.dialog-open {
-  overflow: hidden;
-}
-
 img,
 canvas {
   display: block;
@@ -1140,7 +1136,6 @@ button {
   max-width: none;
   opacity: 0;
   visibility: hidden;
-  translate: 0 -50%;
   filter: drop-shadow(0 34px 55px rgba(0, 17, 38, 0.32));
   will-change: transform, opacity;
 }
@@ -1158,7 +1153,6 @@ button {
   max-height: 88vh;
   margin-block: auto;
   object-fit: contain;
-  translate: none;
 }
 
 .film-product--devices {
@@ -1176,6 +1170,7 @@ button {
 }
 
 .film-product--member {
+  top: 50%;
   right: 3%;
   width: min(46vw, 740px);
   box-shadow: 0 34px 80px rgba(0, 17, 38, 0.3);
@@ -1211,7 +1206,6 @@ button {
   color: var(--white);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-42%);
 }
 
 .film-chapter.is-active {
@@ -1624,6 +1618,7 @@ button {
   overflow: hidden;
   border: 0;
   padding: 32px;
+  text-decoration: none;
   text-align: left;
   cursor: pointer;
   isolation: isolate;
@@ -2039,60 +2034,6 @@ button {
   box-shadow: 0 0 0 8vw rgba(13, 92, 166, 0.08), 0 0 0 16vw rgba(13, 92, 166, 0.045);
 }
 
-/* Dialog */
-.tutorial-dialog {
-  width: min(calc(100% - 32px), 560px);
-  border: 0;
-  border-radius: 0;
-  padding: 50px;
-  color: var(--ink);
-  background: var(--cream);
-  box-shadow: 0 40px 110px rgba(0, 17, 38, 0.42);
-}
-
-.tutorial-dialog::backdrop {
-  background: rgba(0, 17, 38, 0.78);
-  backdrop-filter: blur(12px);
-}
-
-.tutorial-dialog__close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: transparent;
-  font-size: 25px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.tutorial-dialog .kicker {
-  color: var(--blue);
-}
-
-.tutorial-dialog h2 {
-  margin: 0;
-  font-family: var(--display);
-  font-size: 48px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.055em;
-}
-
-.tutorial-dialog p {
-  margin: 25px 0 30px;
-  color: var(--muted);
-}
-
-.tutorial-dialog__button {
-  padding-right: 25px;
-}
-
 .noscript {
   position: fixed;
   z-index: 10000;
@@ -2294,6 +2235,7 @@ button {
   }
 
   .film-product--member {
+    top: 50%;
     right: -1%;
     width: min(47vw, 450px);
   }
@@ -2534,13 +2476,11 @@ button {
   .film-chapter {
     top: auto;
     bottom: 90px;
-    transform: none;
   }
 
   .film-product {
     top: 29%;
     right: -13%;
-    translate: 0 -50%;
   }
 
   .film-product.is-active {
@@ -2564,6 +2504,7 @@ button {
   }
 
   .film-product--member {
+    top: 50%;
     right: -10%;
     width: 75vw;
   }
@@ -2701,13 +2642,6 @@ button {
     font-size: 16px;
   }
 
-  .tutorial-dialog {
-    padding: 42px 25px 30px;
-  }
-
-  .tutorial-dialog h2 {
-    font-size: 38px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

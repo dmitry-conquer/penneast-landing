@@ -1,4 +1,6 @@
+import "glightbox/dist/css/glightbox.min.css";
 import "../styles/main.css";
+import GLightbox from "glightbox";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -273,6 +275,18 @@ const initializeScrollFilm = () => {
   const products = gsap.utils.toArray<HTMLElement>("[data-film-product]");
   if (!section || !chapters.length) return;
 
+  const getChapterYPercent = () => (window.matchMedia("(max-width: 620px)").matches ? 0 : -42);
+
+  chapters.forEach((chapter) => {
+    gsap.set(chapter, { yPercent: getChapterYPercent() });
+  });
+
+  products.forEach((product) => {
+    gsap.set(product, {
+      yPercent: product.classList.contains("film-product--phone") ? 0 : -50,
+    });
+  });
+
   let activeChapter = 0;
 
   const showChapter = (index: number) => {
@@ -281,6 +295,7 @@ const initializeScrollFilm = () => {
     const next = chapters[index];
     const previousProduct = products[activeChapter];
     const nextProduct = products[index];
+    const chapterYPercent = getChapterYPercent();
     activeChapter = index;
 
     if (reducedMotion) {
@@ -294,18 +309,25 @@ const initializeScrollFilm = () => {
     gsap.killTweensOf([previous, next, previousProduct, nextProduct].filter(Boolean) as HTMLElement[]);
     gsap.to(previous, {
       y: -30,
+      yPercent: chapterYPercent,
       autoAlpha: 0,
       duration: 0.36,
       ease: "power2.in",
       onComplete: () => previous?.classList.remove("is-active"),
     });
     next.classList.add("is-active");
-    gsap.fromTo(next, { y: 36, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.58, ease: "power3.out" });
+    gsap.fromTo(
+      next,
+      { y: 36, yPercent: chapterYPercent, autoAlpha: 0 },
+      { y: 0, yPercent: chapterYPercent, autoAlpha: 1, duration: 0.58, ease: "power3.out" },
+    );
 
     if (previousProduct) {
+      const productYPercent = previousProduct.classList.contains("film-product--phone") ? 0 : -50;
       gsap.to(previousProduct, {
         x: 44,
         y: -16,
+        yPercent: productYPercent,
         scale: 0.96,
         autoAlpha: 0,
         duration: 0.42,
@@ -316,11 +338,12 @@ const initializeScrollFilm = () => {
 
     if (nextProduct) {
       const productEntryY = nextProduct.classList.contains("film-product--phone") ? 0 : 24;
+      const productYPercent = nextProduct.classList.contains("film-product--phone") ? 0 : -50;
       nextProduct.classList.add("is-active");
       gsap.fromTo(
         nextProduct,
-        { x: 58, y: productEntryY, scale: 0.94, autoAlpha: 0 },
-        { x: 0, y: 0, scale: 1, autoAlpha: 1, duration: 0.82, ease: "power3.out" },
+        { x: 58, y: productEntryY, yPercent: productYPercent, scale: 0.94, autoAlpha: 0 },
+        { x: 0, y: 0, yPercent: productYPercent, scale: 1, autoAlpha: 1, duration: 0.82, ease: "power3.out" },
       );
     }
   };
@@ -688,26 +711,11 @@ const initializeFaq = () => {
   });
 };
 
-const initializeTutorialDialog = () => {
-  const dialog = document.querySelector<HTMLDialogElement>(".tutorial-dialog");
-  const title = dialog?.querySelector<HTMLElement>("#tutorial-dialog-title");
-  if (!dialog || !title) return;
-
-  const close = () => dialog.close();
-
-  document.querySelectorAll<HTMLButtonElement>("[data-tutorial]").forEach((button) => {
-    button.addEventListener("click", () => {
-      title.textContent = button.dataset.tutorial || "Tutorial video";
-      dialog.showModal();
-    });
-  });
-
-  dialog.querySelectorAll<HTMLButtonElement>(".tutorial-dialog__close, .tutorial-dialog__button").forEach((button) => {
-    button.addEventListener("click", close);
-  });
-
-  dialog.addEventListener("click", (event) => {
-    if (event.target === dialog) close();
+const initializeTutorialLightbox = () => {
+  GLightbox({
+    selector: ".tutorial-lightbox",
+    autoplayVideos: true,
+    touchNavigation: true,
   });
 };
 
@@ -744,7 +752,7 @@ const initialize = () => {
   initializeHeroPointerParallax();
   initializeProductStage();
   initializeFaq();
-  initializeTutorialDialog();
+  initializeTutorialLightbox();
   initializeClosingMotion();
   initializeScrollFilm();
   document.body.classList.remove("is-loading");

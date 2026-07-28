@@ -1,0 +1,438 @@
+{
+  "key": "group_digital_banking_landing",
+  "title": "Digital Banking Landing",
+  "fields": [
+    {
+      "key": "field_digital_banking_landing_content",
+      "label": "Content",
+      "name": "content",
+      "type": "flexible_content",
+      "layouts": {
+        "layout_hero_media_overlap": {
+          "key": "layout_hero_media_overlap",
+          "name": "hero_media_overlap",
+          "label": "Hero: Media Overlap",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_hero_media_overlap_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_hero_media_overlap_section_eyebrow", "label": "Eyebrow", "name": "section_eyebrow", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_hero_media_overlap_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_hero_media_overlap_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 3, "new_lines": "" },
+            { "key": "field_hero_media_overlap_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_hero_media_overlap_section_intro", "label": "Intro", "name": "section_intro", "type": "textarea", "rows": 3, "new_lines": "" },
+            { "key": "field_hero_media_overlap_section_text", "label": "Text", "name": "section_text", "type": "textarea", "rows": 5, "new_lines": "" },
+            { "key": "field_hero_media_overlap_brand_logo", "label": "Brand Logo", "name": "brand_logo", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all" },
+            { "key": "field_hero_media_overlap_brand_link", "label": "Brand Link", "name": "brand_link", "type": "link", "return_format": "array" },
+            { "key": "field_hero_media_overlap_product_image", "label": "Product Image", "name": "product_image", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all" },
+            {
+              "key": "field_hero_media_overlap_product_chips",
+              "label": "Product Chips",
+              "name": "product_chips",
+              "type": "repeater",
+              "layout": "table",
+              "button_label": "Add Chip",
+              "sub_fields": [
+                { "key": "field_hero_media_overlap_chip_label", "label": "Label", "name": "label", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_hero_media_overlap_product_chips" },
+                {
+                  "key": "field_hero_media_overlap_chip_position",
+                  "label": "Position",
+                  "name": "position",
+                  "type": "select",
+                  "choices": {
+                    "primary": "Primary",
+                    "credit": "Credit",
+                    "snapshot": "Snapshot",
+                    "accounts": "Accounts",
+                    "secondary": "Secondary"
+                  },
+                  "return_format": "value",
+                  "parent_repeater": "field_hero_media_overlap_product_chips"
+                }
+              ]
+            },
+            { "key": "field_hero_media_overlap_primary_link", "label": "Primary Link", "name": "primary_link", "type": "link", "return_format": "array" },
+            { "key": "field_hero_media_overlap_secondary_link", "label": "Secondary Link", "name": "secondary_link", "type": "link", "return_format": "array" },
+            { "key": "field_hero_media_overlap_date_label", "label": "Date Label", "name": "date_label", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_hero_media_overlap_date_value", "label": "Date Value", "name": "date_value", "type": "text" },
+            { "key": "field_hero_media_overlap_scroll_link", "label": "Scroll Link", "name": "scroll_link", "type": "link", "return_format": "array" }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_content_media_split": {
+          "key": "layout_content_media_split",
+          "name": "content_media_split",
+          "label": "Content: Media Split",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_content_media_split_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_content_media_split_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_media_split_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_media_split_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_media_split_media_image", "label": "Media Image", "name": "media_image", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all" },
+            { "key": "field_content_media_split_media_tag_label", "label": "Media Tag Label", "name": "media_tag_label", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_media_split_media_tag_heading", "label": "Media Tag Heading", "name": "media_tag_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            {
+              "key": "field_content_media_split_content_items",
+              "label": "Content Items",
+              "name": "content_items",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Paragraph",
+              "sub_fields": [
+                { "key": "field_content_media_split_item_text", "label": "Text", "name": "text", "type": "textarea", "rows": 5, "new_lines": "", "parent_repeater": "field_content_media_split_content_items" },
+                { "key": "field_content_media_split_item_is_lead", "label": "Lead Paragraph", "name": "is_lead", "type": "true_false", "default_value": 0, "ui": 1, "parent_repeater": "field_content_media_split_content_items" }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_process_steps_slider": {
+          "key": "layout_process_steps_slider",
+          "name": "process_steps_slider",
+          "label": "Process: Steps Slider",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_process_steps_slider_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_process_steps_slider_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_process_steps_slider_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_process_steps_slider_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_process_steps_slider_section_intro", "label": "Intro", "name": "section_intro", "type": "textarea", "rows": 3, "new_lines": "" },
+            {
+              "key": "field_process_steps_slider_steps",
+              "label": "Steps",
+              "name": "steps",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Step",
+              "sub_fields": [
+                { "key": "field_process_steps_slider_step_heading", "label": "Heading", "name": "heading", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_process_steps_slider_steps" },
+                { "key": "field_process_steps_slider_step_description", "label": "Description", "name": "description", "type": "textarea", "rows": 5, "new_lines": "", "parent_repeater": "field_process_steps_slider_steps" },
+                {
+                  "key": "field_process_steps_slider_step_theme",
+                  "label": "Theme",
+                  "name": "theme",
+                  "type": "select",
+                  "choices": { "gold": "Gold", "blue": "Blue", "navy": "Navy" },
+                  "return_format": "value",
+                  "parent_repeater": "field_process_steps_slider_steps"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_process_steps_sticky": {
+          "key": "layout_process_steps_sticky",
+          "name": "process_steps_sticky",
+          "label": "Process: Steps Sticky",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_process_steps_sticky_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_process_steps_sticky_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_process_steps_sticky_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_process_steps_sticky_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            {
+              "key": "field_process_steps_sticky_steps",
+              "label": "Steps",
+              "name": "steps",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Step",
+              "sub_fields": [
+                { "key": "field_process_steps_sticky_step_label", "label": "Label", "name": "label", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_process_steps_sticky_steps" },
+                { "key": "field_process_steps_sticky_step_heading", "label": "Heading", "name": "heading", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_process_steps_sticky_steps" },
+                {
+                  "key": "field_process_steps_sticky_step_items",
+                  "label": "Items",
+                  "name": "items",
+                  "type": "repeater",
+                  "layout": "table",
+                  "button_label": "Add Item",
+                  "parent_repeater": "field_process_steps_sticky_steps",
+                  "sub_fields": [
+                    { "key": "field_process_steps_sticky_item_text", "label": "Text", "name": "text", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_process_steps_sticky_step_items" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_showcase_media_pinned": {
+          "key": "layout_showcase_media_pinned",
+          "name": "showcase_media_pinned",
+          "label": "Showcase: Media Pinned",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_showcase_media_pinned_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_showcase_media_pinned_top_label", "label": "Top Label", "name": "top_label", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_showcase_media_pinned_scroll_label", "label": "Scroll Label", "name": "scroll_label", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_showcase_media_pinned_background_video", "label": "Background Video", "name": "background_video", "type": "file", "return_format": "id", "library": "all", "mime_types": "mp4" },
+            {
+              "key": "field_showcase_media_pinned_slides",
+              "label": "Slides",
+              "name": "slides",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Slide",
+              "sub_fields": [
+                { "key": "field_showcase_media_pinned_slide_kicker", "label": "Kicker", "name": "kicker", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_showcase_media_pinned_slides" },
+                { "key": "field_showcase_media_pinned_slide_heading", "label": "Heading", "name": "heading", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_showcase_media_pinned_slides" },
+                { "key": "field_showcase_media_pinned_slide_heading_accent", "label": "Heading Accent", "name": "heading_accent", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_showcase_media_pinned_slides" },
+                { "key": "field_showcase_media_pinned_slide_description", "label": "Description", "name": "description", "type": "textarea", "rows": 4, "new_lines": "", "parent_repeater": "field_showcase_media_pinned_slides" },
+                { "key": "field_showcase_media_pinned_slide_media_image", "label": "Media Image", "name": "media_image", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all", "parent_repeater": "field_showcase_media_pinned_slides" },
+                {
+                  "key": "field_showcase_media_pinned_slide_media_variant",
+                  "label": "Media Variant",
+                  "name": "media_variant",
+                  "type": "select",
+                  "choices": { "phone": "Phone", "devices": "Devices", "experience": "Experience", "member": "Member" },
+                  "return_format": "value",
+                  "parent_repeater": "field_showcase_media_pinned_slides"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_features_media_list": {
+          "key": "layout_features_media_list",
+          "name": "features_media_list",
+          "label": "Features: Media List",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_features_media_list_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_features_media_list_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_features_media_list_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_features_media_list_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_features_media_list_section_intro", "label": "Intro", "name": "section_intro", "type": "textarea", "rows": 3, "new_lines": "" },
+            { "key": "field_features_media_list_media_label", "label": "Media Label", "name": "media_label", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_features_media_list_media_heading", "label": "Media Heading", "name": "media_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_features_media_list_media_image", "label": "Media Image", "name": "media_image", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all" },
+            { "key": "field_features_media_list_badge_label", "label": "Badge Label", "name": "badge_label", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_features_media_list_badge_value", "label": "Badge Value", "name": "badge_value", "type": "text" },
+            {
+              "key": "field_features_media_list_features",
+              "label": "Features",
+              "name": "features",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Feature",
+              "sub_fields": [
+                { "key": "field_features_media_list_feature_heading", "label": "Heading", "name": "heading", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_features_media_list_features" },
+                { "key": "field_features_media_list_feature_description", "label": "Description", "name": "description", "type": "textarea", "rows": 5, "new_lines": "", "parent_repeater": "field_features_media_list_features" }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_content_lists_split": {
+          "key": "layout_content_lists_split",
+          "name": "content_lists_split",
+          "label": "Content: Lists Split",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_content_lists_split_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_content_lists_split_marquee_primary", "label": "Marquee Primary", "name": "marquee_primary", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_lists_split_marquee_secondary", "label": "Marquee Secondary", "name": "marquee_secondary", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_lists_split_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_lists_split_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_lists_split_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_lists_split_section_intro", "label": "Intro", "name": "section_intro", "type": "textarea", "rows": 3, "new_lines": "" },
+            {
+              "key": "field_content_lists_split_items",
+              "label": "Items",
+              "name": "items",
+              "type": "repeater",
+              "layout": "table",
+              "button_label": "Add Item",
+              "sub_fields": [
+                { "key": "field_content_lists_split_item_text", "label": "Text", "name": "text", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_content_lists_split_items" }
+              ]
+            },
+            { "key": "field_content_lists_split_summary_label", "label": "Summary Label", "name": "summary_label", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_content_lists_split_summary_heading", "label": "Summary Heading", "name": "summary_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            {
+              "key": "field_content_lists_split_summary_items",
+              "label": "Summary Items",
+              "name": "summary_items",
+              "type": "repeater",
+              "layout": "table",
+              "button_label": "Add Summary Item",
+              "sub_fields": [
+                { "key": "field_content_lists_split_summary_item_label", "label": "Label", "name": "label", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_content_lists_split_summary_items" },
+                { "key": "field_content_lists_split_summary_item_value", "label": "Value", "name": "value", "type": "textarea", "rows": 3, "new_lines": "", "parent_repeater": "field_content_lists_split_summary_items" }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_resources_video_cards_grid": {
+          "key": "layout_resources_video_cards_grid",
+          "name": "resources_video_cards_grid",
+          "label": "Resources: Video Cards Grid",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_resources_video_cards_grid_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_resources_video_cards_grid_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_resources_video_cards_grid_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_resources_video_cards_grid_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_resources_video_cards_grid_section_intro", "label": "Intro", "name": "section_intro", "type": "textarea", "rows": 3, "new_lines": "" },
+            {
+              "key": "field_resources_video_cards_grid_cards",
+              "label": "Video Cards",
+              "name": "cards",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Video Card",
+              "sub_fields": [
+                { "key": "field_resources_video_cards_grid_card_meta", "label": "Meta", "name": "meta", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_resources_video_cards_grid_cards" },
+                { "key": "field_resources_video_cards_grid_card_heading", "label": "Heading", "name": "heading", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_resources_video_cards_grid_cards" },
+                { "key": "field_resources_video_cards_grid_card_video_url", "label": "Video URL", "name": "video_url", "type": "url", "parent_repeater": "field_resources_video_cards_grid_cards" },
+                {
+                  "key": "field_resources_video_cards_grid_card_variant",
+                  "label": "Variant",
+                  "name": "variant",
+                  "type": "select",
+                  "choices": { "one": "One", "two": "Two", "three": "Three" },
+                  "return_format": "value",
+                  "parent_repeater": "field_resources_video_cards_grid_cards"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_faq_accordion": {
+          "key": "layout_faq_accordion",
+          "name": "faq_accordion",
+          "label": "FAQ: Accordion",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_faq_accordion_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_faq_accordion_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_faq_accordion_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_faq_accordion_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            {
+              "key": "field_faq_accordion_categories",
+              "label": "Categories",
+              "name": "categories",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Category",
+              "sub_fields": [
+                { "key": "field_faq_accordion_category_heading", "label": "Heading", "name": "heading", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_faq_accordion_categories" },
+                {
+                  "key": "field_faq_accordion_category_items",
+                  "label": "Questions",
+                  "name": "items",
+                  "type": "repeater",
+                  "layout": "block",
+                  "button_label": "Add Question",
+                  "parent_repeater": "field_faq_accordion_categories",
+                  "sub_fields": [
+                    { "key": "field_faq_accordion_item_question", "label": "Question", "name": "question", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_faq_accordion_category_items" },
+                    { "key": "field_faq_accordion_item_answer", "label": "Answer", "name": "answer", "type": "textarea", "rows": 4, "new_lines": "", "parent_repeater": "field_faq_accordion_category_items" },
+                    { "key": "field_faq_accordion_item_is_open", "label": "Open by Default", "name": "is_open", "type": "true_false", "default_value": 0, "ui": 1, "parent_repeater": "field_faq_accordion_category_items" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_cta_media_split": {
+          "key": "layout_cta_media_split",
+          "name": "cta_media_split",
+          "label": "CTA: Media Split",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_cta_media_split_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_cta_media_split_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_cta_media_split_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_cta_media_split_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_cta_media_split_section_intro", "label": "Intro", "name": "section_intro", "type": "textarea", "rows": 3, "new_lines": "" },
+            { "key": "field_cta_media_split_media_image", "label": "Media Image", "name": "media_image", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all" },
+            { "key": "field_cta_media_split_media_caption", "label": "Media Caption", "name": "media_caption", "type": "textarea", "rows": 2, "new_lines": "" },
+            {
+              "key": "field_cta_media_split_links",
+              "label": "Links",
+              "name": "links",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Link",
+              "sub_fields": [
+                { "key": "field_cta_media_split_link_eyebrow", "label": "Eyebrow", "name": "eyebrow", "type": "textarea", "rows": 2, "new_lines": "", "parent_repeater": "field_cta_media_split_links" },
+                { "key": "field_cta_media_split_item_link", "label": "Link", "name": "link", "type": "link", "return_format": "array", "parent_repeater": "field_cta_media_split_links" }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_cta_centered": {
+          "key": "layout_cta_centered",
+          "name": "cta_centered",
+          "label": "CTA: Centered",
+          "display": "block",
+          "sub_fields": [
+            { "key": "field_cta_centered_section_id", "label": "Section ID", "name": "section_id", "type": "text" },
+            { "key": "field_cta_centered_section_kicker", "label": "Kicker", "name": "section_kicker", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_cta_centered_section_heading", "label": "Heading", "name": "section_heading", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_cta_centered_section_heading_accent", "label": "Heading Accent", "name": "section_heading_accent", "type": "textarea", "rows": 2, "new_lines": "" },
+            {
+              "key": "field_cta_centered_content_items",
+              "label": "Content Items",
+              "name": "content_items",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Paragraph",
+              "sub_fields": [
+                { "key": "field_cta_centered_item_text", "label": "Text", "name": "text", "type": "textarea", "rows": 5, "new_lines": "", "parent_repeater": "field_cta_centered_content_items" }
+              ]
+            },
+            { "key": "field_cta_centered_primary_link", "label": "Primary Link", "name": "primary_link", "type": "link", "return_format": "array" },
+            { "key": "field_cta_centered_section_note", "label": "Note", "name": "section_note", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_cta_centered_credit_label", "label": "Credit Label", "name": "credit_label", "type": "textarea", "rows": 2, "new_lines": "" },
+            { "key": "field_cta_centered_credit_link", "label": "Credit Link", "name": "credit_link", "type": "link", "return_format": "array" }
+          ],
+          "min": "",
+          "max": ""
+        }
+      },
+      "button_label": "Add Section",
+      "min": "",
+      "max": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/digital-banking-landing.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [
+    "the_content"
+  ],
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1785211200
+}
